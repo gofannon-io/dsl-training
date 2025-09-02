@@ -1,0 +1,49 @@
+
+define plane id=RP-01 name="SU-58" {
+    connectors {
+        connector id=CON-FB-00 type=Fiber
+        connector id=CON-FB-01 type=Fiber
+        connector id=CON-RJ-00 type=RJ45
+        connector id=CON-RJ-01 type=RJ45
+    }
+}
+
+define radio id=RAD-01 type=HF {
+    connectors {
+        connector id=CON-FB-00 type=Fiber
+        connector id=CON-RJ-01 type=RJ45
+    }
+}
+
+define cockpit id=COT-01 type=RF4Cockpit {
+    connectors {
+        connector id=CON-FB-00 type=Fiber
+        connector id=CON-RJ-01 type=RJ45
+    }
+}
+
+define sensor id=SR-00 type=Radar {
+    connectors {
+        connector id=CON-FB-00 type=Fiber
+        connector id=CON-RJ-01 type=RJ45
+    }
+}
+
+define sensor id=SR-01 type=IR {
+    connectors {
+        connector id=CON-FB-00 type=Fiber
+        connector id=CON-RJ-01 type=RJ45
+    }
+}
+
+define cable id=CABLE-FB-00 type=Fiber
+define cable id=CABLE-FB-01 type=Fiber
+define cable id=CABLE-RJ-02 type=RJ45
+define cable id=CABLE-RJ-03 type=RJ45
+
+
+
+connect RP-01/CON-FB-00 to RAD-01/CON-FB-00 with CABLE-FB-00
+connect RP-01/CON-FB-01 to COT-01/CON-FB-00 with CABLE-FB-01
+connect RP-01/CON-RJ-00 to SR-00/CON-RJ-01 with CABLE-RJ-02
+connect RP-01/CON-RJ-01 to SR-01/CON-RJ-01 with CABLE-RJ-03
